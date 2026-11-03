@@ -1,0 +1,161 @@
+{
+  "typography": {
+    "display": {
+      "family": "Oswald, sans-serif",
+      "weights": ["600", "700"],
+      "usage": "Station names, main platform signage, big numeric indicators. Gives the classic condensed railway authority feel."
+    },
+    "digital_board": {
+      "family": "JetBrains Mono, monospace",
+      "weights": ["400", "700"],
+      "usage": "Digital destination board LED text, ticket serial numbers, barcode text."
+    },
+    "body": {
+      "family": "Outfit, sans-serif",
+      "weights": ["300", "400", "500", "600"],
+      "usage": "Body copy, UI labels, standard navigation. Clean and highly readable."
+    },
+    "rules": [
+      "No Inter or generic sans for headings.",
+      "Headlines > 32px MUST use tracking-tight.",
+      "Digital board text should have a slight text-shadow to simulate LED glow."
+    ]
+  },
+  "colors": {
+    "archetype": "Organic & Earthy with High Contrast (Transit Variant)",
+    "base": {
+      "background": "#F4F1EA", 
+      "surface": "#E8E3D8",
+      "charcoal": "#1A1A1A",
+      "paper_ticket": "#FDFBF7"
+    },
+    "brand_lines": {
+      "blue_engineering": "#1E3A8A",
+      "yellow_events": "#F59E0B",
+      "green_product": "#166534"
+    },
+    "accents": {
+      "signal_red": "#DC2626",
+      "led_orange": "#FF8C00",
+      "signage_yellow": "#FBBF24"
+    },
+    "rules": [
+      "Never use pure black or pure white. Use charcoal and paper white.",
+      "Line colors must be used consistently for ticketing, routing, and stub page themes.",
+      "Avoid generic full-screen gradients. Use solid colors with texture."
+    ]
+  },
+  "visual_enhancers": {
+    "textures": [
+      "Paper grain overlay on the ticket component (mix-blend-multiply with low opacity).",
+      "Subtle noise overlay globally to make it feel like a physical station rather than a digital void."
+    ],
+    "shapes": [
+      "Ticket perforations using CSS radial-gradient masks.",
+      "Harsh, architectural lines for the station platform.",
+      "Pill-shaped badges for train line indicators."
+    ],
+    "shadows": [
+      "Harsh, realistic directional shadows for the ticket floating above the counter.",
+      "Inner shadows for the digital board to make it look recessed."
+    ]
+  },
+  "component_name": [
+    "StationHero",
+    "TicketCounter",
+    "DigitalDestinationBoard",
+    "PlatformSignage",
+    "TrainArrival",
+    "EasterEggAunty",
+    "NavigationHeader"
+  ],
+  "grids": {
+    "strategy": "The 'Bento' Grid Protocol (Universal) Mode A for the Hero Station Layout",
+    "layout": "grid-cols-1 md:grid-cols-12 gap-8",
+    "spans": {
+      "signage_board": "col-span-full md:col-span-12",
+      "train_platform": "col-span-full md:col-span-8",
+      "ticket_booking": "col-span-full md:col-span-4"
+    }
+  },
+  "layouts": {
+    "home_station": {
+      "structure": "Full-height (min-h-screen) immersive layout. Top: Navigation & Signage. Middle: The Platform and Digital Board. Right/Bottom: Interactive Ticket Counter.",
+      "spacing": "Generous spacing. p-6 md:p-12 for the outer container to frame the station scene."
+    },
+    "stub_pages": {
+      "engineering": "Dark navy/blue background, visible grid lines, architectural diagrams.",
+      "events": "Warm amber/yellow background, poster-style masonry layout, energetic.",
+      "product": "Deep green + cream, linear roadmaps, editorial typography."
+    }
+  },
+  "motion": {
+    "train_arrival": "Framer motion x-translation. Train slides in from right to left (100% to 0%), decelerating smoothly (easeOut) to stop at the platform.",
+    "board_updates": "Text scramble or flip-down animation when language is toggled (English -> Hindi -> Marathi).",
+    "ticket_punch": "On 'Board Train' click: A small circular div scales down (stamp/punch effect) on the ticket edge, accompanied by a quick scale down and up (0.95 -> 1) of the whole ticket card. Followed by a zoom-in transition to the destination.",
+    "micro_interactions": "Hover states on line selections expand slightly. Train doors might pulse slightly when ready to board.",
+    "prefers_reduced_motion": "Ensure all translations revert to simple opacities if prefers-reduced-motion is true."
+  },
+  "accessibility": {
+    "contrast": "Ensure Charcoal text on Beige, and White text on Blue/Green/Yellow lines meets APCA standards.",
+    "focus": "High-contrast focus rings (Signal Red or Charcoal) for language switchers and ticket inputs.",
+    "aria": "Use aria-live for the digital board updates. Add aria-hidden to decorative train SVG elements."
+  },
+  "media": {
+    "imagery_direction": "Minimalist vector/SVG representations of the Mumbai Local train and platform. Do not use generic 3D or cartoon graphics. Keep it architectural and flat with texture. Use real photos for textures (paper, grit).",
+    "easter_eggs": "A subtle illustrated 'aunty' figure. On hover or click, a speech bubble appears: 'पुठिल, 11 बज के एक की train कब आएगी, पनवेल को जाने वाली?'. Also include subtle chaiwala SVG nearby."
+  },
+  "3d_libraries": {
+    "decision": "No heavy 3D. The brief explicitly states 'Avoid heavy 3D'. Use Framer Motion for 2.5D layering (parallax platform elements) and SVG animation."
+  },
+  "image_urls": [
+    {
+      "url": "https://images.unsplash.com/photo-1776278515671-fe179ba9cfd3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzOTB8MHwxfHNlYXJjaHwzfHx2aW50YWdlJTIwcGFwZXIlMjB0ZXh0dXJlfGVufDB8fHx8MTc5MzcyNjEyNXww&ixlib=rb-4.1.0&q=85",
+      "description": "Wrinkled light brown paper texture",
+      "category": "texture_overlay",
+      "usage": "Use as a background-image with mix-blend-multiply opacity-50 on the Ticket component."
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1616410731303-6affae095a0a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzOTB8MHwxfHNlYXJjaHwyfHx2aW50YWdlJTIwcGFwZXIlMjB0ZXh0dXJlfGVufDB8fHx8MTc5MzcyNjEyNXww&ixlib=rb-4.1.0&q=85",
+      "description": "Plain beige cardboard",
+      "category": "texture_overlay",
+      "usage": "Use for the overall station background subtle grain."
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1569758267239-d08deb78bb1a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHxtdW1iYWklMjBza3lsaW5lfGVufDB8fHx8MTc5MzcyNjEyNXww&ixlib=rb-4.1.0&q=85",
+      "description": "Bandra-Worli Sea Link / Skyline",
+      "category": "background_hint",
+      "usage": "Can be heavily filtered (monochrome, low opacity) in the background sky of the station."
+    }
+  ],
+  "component_path": "/app/frontend/src/components/ui",
+  "instructions_to_main_agent": [
+    "Build the StationHero experience in the Home page. It must include a stylized train station layout.",
+    "Implement the 'Digital Destination Board' that cycles/toggles the question 'Where do you want to go?' in English, Hindi (कहाँ जाना है?), and Marathi (कुठे जायचं आहे?).",
+    "Implement the 'Ticket Booking' flow. User selects one of three lines (Blue/Engineering, Yellow/Events, Green/Product). The ticket UI must look like a real Indian railway ticket (paper texture, perforated edges, monospace serial numbers, 'FREE' fare).",
+    "Add Framer Motion for the train arrival animation when the page mounts.",
+    "Add the 'Ticket Punch' animation sequence when the user confirms their ticket, then transition to the respective stub page.",
+    "Build basic themed stub pages for Engineering, Events, Product, About, Contact to ensure navigation works.",
+    "Implement the 'Aunty' easter egg as a clickable/hoverable element that shows a text speech bubble.",
+    "Ensure the UI uses the exact typography rules (Oswald for display, JetBrains Mono for digital boards, Outfit for body).",
+    "Add 'data-testid' to all interactive elements."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "Do not converge toward generic, 'on distribution' outputs. Avoid the 'AI slop' aesthetic.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur) where appropriate.",
+    "You MUST NOT apply universal transition. Eg: 'transition: all'. This results in breaking transforms. Always add transitions for specific interactive elements like button, input excluding transforms.",
+    "You MUST NOT center align the app container, ie do not add '.App { text-align: center; }' in the css file.",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations & color relevant to the app style.",
+    "NEVER: use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯 etc for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations. Static = dead.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations: separates good from extraordinary.",
+    "Main agent relies on these image URLs. Missing categories (especially sponsor logos) = main agent will use placeholder text which is FORBIDDEN.",
+    "Prioritize using pre-existing components from src/components/ui when applicable.",
+    "Create new components that match the style and conventions of existing components when needed.",
+    "Use `sonner` for toasts. Sonner component are located in `/app/frontend/src/components/ui/sonner.jsx`."
+  ]
+}
