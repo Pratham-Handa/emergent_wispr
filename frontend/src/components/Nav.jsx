@@ -129,7 +129,7 @@ export default function Nav() {
 
           <button
             data-testid="nav-menu-button"
-            className="text-[#F4F1EA] lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[#F4F1EA]/20 bg-[#2C2A26] text-[#F4F1EA] shadow-sm transition-colors hover:bg-[#3A3427] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5B31B] lg:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
@@ -149,7 +149,7 @@ export default function Nav() {
       )}
 
       {open && (
-        <div className="fixed inset-0 top-14 z-40 flex flex-col gap-2 bg-[#1A1A1A] px-6 pt-10 lg:hidden" data-testid="nav-mobile-menu">
+        <div className="absolute inset-x-0 top-full z-40 flex min-h-[calc(100dvh-3.5rem)] max-h-[calc(100dvh-3.5rem)] flex-col gap-1 overflow-y-auto border-b border-[#F4F1EA]/15 bg-[#1A1A1A] px-6 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 shadow-xl lg:hidden" data-testid="nav-mobile-menu">
           {links.map(({ k, to }) => (
             <NavLink
               key={k}

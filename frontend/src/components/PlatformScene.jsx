@@ -125,7 +125,7 @@ export default function PlatformScene() {
                   initial={{ opacity: 0, y: 8, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8 }}
-                  className="absolute bottom-full left-1/2 mb-3 w-64 -translate-x-1/2 rounded-lg border-2 border-[#1A1A1A] bg-[#FDFBF7] p-3 shadow-[6px_6px_0_rgba(26,26,26,0.2)]"
+                  className="absolute bottom-full left-1/2 mb-3 hidden w-64 -translate-x-1/2 rounded-lg border-2 border-[#1A1A1A] bg-[#FDFBF7] p-3 shadow-[6px_6px_0_rgba(26,26,26,0.2)] md:block"
                   data-testid="aunty-speech-bubble"
                 >
                   <p className="text-sm leading-snug text-[#1A1A1A]">“{t.eggs.auntyLabel}”</p>
@@ -136,7 +136,13 @@ export default function PlatformScene() {
             </AnimatePresence>
             <button
               data-testid="easter-egg-aunty"
-              onClick={() => setAunty((v) => !v)}
+              onClick={() => {
+                if (window.matchMedia("(max-width: 767px)").matches) {
+                  toast.message(t.eggs.auntyLabel);
+                  return;
+                }
+                setAunty((v) => !v);
+              }}
               aria-label="An aunty waiting on the platform — tap to read her question"
               className="block transition-transform duration-200 hover:-translate-y-1"
             >

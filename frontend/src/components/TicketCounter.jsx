@@ -247,10 +247,10 @@ export default function TicketCounter() {
           >
             <TrainSVG id="boarding" />
           </motion.div>
-          <p className="mt-8 font-board text-sm tracking-[0.4em] text-[#FFB000]" data-testid="boarding-label">
+          <p className="mt-8 w-[min(92vw,32rem)] text-center font-board text-sm leading-relaxed tracking-[0.4em] text-[#FFB000]" data-testid="boarding-label">
             {t.boarding.label} — {sel.destination}
           </p>
-          <p className="mt-2 text-sm text-[#F4F1EA]/85">{t.boarding.note}</p>
+          <p className="mt-2 w-[min(92vw,32rem)] text-center text-sm leading-relaxed text-[#F4F1EA]/85">{t.boarding.note}</p>
           <motion.div
             className="mt-6 h-0.5 bg-[#FFB000]"
             initial={{ width: 0 }}
