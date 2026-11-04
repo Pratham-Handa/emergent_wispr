@@ -172,7 +172,7 @@ export default function TicketCounter() {
 
                   <dl className="mt-4 grid grid-cols-3 gap-x-4 gap-y-3">
                     {[
-                      [t.ticket.train, "PRATHAM EXPRESS"],
+                      [t.ticket.train, "MUMBAI LOCAL · EMU"],
                       [t.ticket.klass, t.ticket.klassValue],
                       [t.ticket.fare, t.ticket.free],
                     ].map(([k, v]) => (
@@ -245,7 +245,7 @@ export default function TicketCounter() {
             transition={{ duration: 2, ease: "easeInOut" }}
             className="w-[600px] max-w-[92vw]"
           >
-            <TrainSVG stripe={sel.color} id="boarding" />
+            <TrainSVG id="boarding" />
           </motion.div>
           <p className="mt-8 font-board text-sm tracking-[0.4em] text-[#FFB000]" data-testid="boarding-label">
             {t.boarding.label} — {sel.destination}

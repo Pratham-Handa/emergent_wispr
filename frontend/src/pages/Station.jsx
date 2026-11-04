@@ -84,14 +84,6 @@ export default function Station() {
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.7 }}
-            className="mt-2 max-w-xl text-sm uppercase tracking-[0.18em] text-[#1A1A1A]/50"
-          >
-            {t.support}
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.78 }}
             className="mt-3 max-w-2xl text-base font-medium text-[#1A1A1A]/80 sm:text-lg"
           >

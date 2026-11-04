@@ -1,7 +1,7 @@
 export const LINES = [
   {
     id: "engineering",
-    line: "ENGINEERING EXPRESS",
+    line: "ENGINEERING LOCAL",
     destination: "ENGINEERING CENTRAL",
     short: "Engineering",
     color: "#1E3A8A",
@@ -15,7 +15,7 @@ export const LINES = [
   },
   {
     id: "events",
-    line: "EVENTS EXPRESS",
+    line: "COMMUNITY LOCAL",
     destination: "COMMUNITY JUNCTION",
     short: "Events",
     color: "#D97706",
@@ -29,7 +29,7 @@ export const LINES = [
   },
   {
     id: "product",
-    line: "PRODUCT EXPRESS",
+    line: "PRODUCT LOCAL",
     destination: "PRODUCT JUNCTION",
     short: "Product",
     color: "#166534",
@@ -92,7 +92,7 @@ export const ABOUT = {
   achievements: [
     "RΞDACT 2025 — National Second Place / First Runner-Up, ₹15,000",
     "Enthusiac 2026 — First Prize in Business Speech",
-    "NPTEL Affective Computing — Elite, 85%",
+    "NPTEL Affective Computing — Elite + Silver, 85%",
     "BSE Health2Wealth Summit — Certificate of Appreciation for exceptional work",
   ],
   github: PROFILE_LINKS.github,
@@ -102,7 +102,6 @@ export const STRINGS = {
   en: {
     question: "Where do you want to go?",
     tagline: "A journey through code, products and people.",
-    support: "Turning complex work into practical software, products, and workflows.",
     nav: { station: "Station", engineering: "Engineering", events: "Events", product: "Product", about: "About", contact: "Contact" },
     hero: {
       eyebrow: "PRATHAM HANDA · PORTFOLIO · MUMBAI, INDIA",
@@ -125,7 +124,7 @@ export const STRINGS = {
     },
     board: [
       "NEXT STATION: YOUR DESTINATION",
-      "PRATHAM EXPRESS ARRIVING AT PLATFORM 1",
+      "MUMBAI LOCAL ARRIVING AT PLATFORM 1",
       "ALL LINES RUN FREE — NO FARE, EVER",
       "THIS TRAIN IS NEVER LATE",
     ],
@@ -165,7 +164,6 @@ export const STRINGS = {
   hi: {
     question: "कहाँ जाना है?",
     tagline: "कोड, प्रोडक्ट्स और लोगों का सफ़र।",
-    support: "टेक्नोलॉजी बनाना, प्रोडक्ट्स को आकार देना, लोगों को जोड़ना।",
     nav: { station: "स्थानक", engineering: "इंजीनियरिंग", events: "इवेंट्स", product: "प्रोडक्ट", about: "परिचय", contact: "संपर्क" },
     hero: {
       eyebrow: "प्रथम हांडा · पोर्टफोलियो · मुंबई, भारत",
@@ -228,7 +226,6 @@ export const STRINGS = {
   mr: {
     question: "कुठे जायचं आहे?",
     tagline: "कोड, प्रॉडक्ट्स आणि माणसं — हा प्रवास.",
-    support: "टेक्नॉलॉजी घडवत, प्रॉडक्ट्स घडवत, लोकांना जोडत.",
     nav: { station: "स्थानक", engineering: "इंजिनिअरिंग", events: "इव्हेंट्स", product: "प्रॉडक्ट", about: "परिचय", contact: "संपर्क" },
     hero: {
       eyebrow: "प्रथम हांडा · पोर्टफोलिओ · मुंबई, भारत",

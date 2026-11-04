@@ -6,51 +6,58 @@ import { useLang } from "./LanguageContext";
 const SKYLINE =
   "https://images.unsplash.com/photo-1569758267239-d08deb78bb1a?crop=entropy&cs=srgb&fm=jpg&q=70&w=1600";
 
-export function TrainSVG({ stripe = "#B3352B", id = "train" }) {
-  const win = (x) => (
-    <rect key={`w${x}`} x={x} y={104} width={36} height={44} rx={3} fill="#26221C" />
-  );
-  const door = (x) => (
-    <g key={`d${x}`}>
-      <rect x={x} y={110} width={44} height={126} rx={2} fill="#E6DECA" stroke="#26221C" strokeWidth="2" />
-      <line x1={x + 22} y1={110} x2={x + 22} y2={236} stroke="#26221C" strokeWidth="1.5" />
-      <rect x={x + 16} y={160} width={12} height={5} fill="#B3352B" />
-    </g>
-  );
-  const label = (x, cid) => (
-    <text key={`t${cid}`} x={x} y={216} textAnchor="middle" className="font-board" fontSize="13" fill="#26221C" opacity="0.75" letterSpacing="3">
-      PRATHAM EXPRESS · {cid}
-    </text>
-  );
-  const bogie = (x) => <rect key={`b${x}`} x={x} y={252} width={130} height={22} rx={6} fill="#14110B" />;
-
+export function TrainSVG({ id = "train" }) {
+  const windows = [108, 158, 262, 312, 404, 454, 558, 608, 692, 742, 846, 896];
+  const doors = [208, 508, 796];
   return (
-    <svg viewBox="0 0 960 286" className="w-full" role="img" aria-label="The Pratham Express local standing at the platform">
-      <rect x="10" y="72" width="940" height="16" rx="6" fill="#26221C" />
-      <path d="M470 72 l24 -26 l24 26 z" fill="#26221C" opacity="0.9" />
-      <path d="M494 46 v-14 M494 32 h-20 M494 32 h20" stroke="#26221C" strokeWidth="3" fill="none" />
-      <rect x="10" y="84" width="940" height="152" fill="#F2ECDD" stroke="#26221C" strokeWidth="2" />
-      <rect x="10" y="170" width="940" height="22" fill={stripe} />
-      <rect x="348" y="84" width="8" height="152" fill="#D9D0BC" />
-      <rect x="652" y="84" width="8" height="152" fill="#D9D0BC" />
-      <rect x="22" y="98" width="54" height="42" rx="4" fill="#26221C" />
-      <rect x="20" y="146" width="58" height="22" rx="2" fill="#26221C" />
-      <text x="49" y="161" textAnchor="middle" className="font-board" fontSize="9" fill="#FFB000" letterSpacing="1">
-        PRATHAM
-      </text>
-      <circle cx="30" cy="226" r="5" fill="#F5B31B" />
-      <circle cx="64" cy="226" r="5" fill="#F5B31B" />
-      {door(88)}
-      {[148, 196, 244, 292].map(win)}
-      {label(300, "C1")}
-      {door(640)}
-      {[160, 208, 256, 304].map(win)}
-      {label(600, "C2")}
-      {door(742)}
-      {[810, 858, 906].map(win)}
-      {label(850, "C3")}
-      <rect x="10" y="236" width="940" height="24" fill="#26221C" />
-      {[30, 180, 400, 620, 840].map(bogie)}
+    <svg viewBox="0 100 960 145" className="w-full" role="img" aria-label="Mumbai Central Railway suburban local coaches, facing right">
+      <defs>
+        <linearGradient id={`${id}-coach`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#FBF9F3" />
+          <stop offset="1" stopColor="#D9D9D5" />
+        </linearGradient>
+        <linearGradient id={`${id}-glass`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#F7F7F1" />
+          <stop offset="1" stopColor="#CBD1D1" />
+        </linearGradient>
+      </defs>
+
+      {/* Three connected Mumbai local coaches, kept on a transparent canvas. */}
+      <path d="M79 110h297v107H79z" fill={`url(#${id}-coach)`} stroke="#72777B" strokeWidth="3" />
+      <path d="M376 110h288v107H376zM664 110h257q10 0 14 7l26 46v54H664z" fill={`url(#${id}-coach)`} stroke="#72777B" strokeWidth="3" />
+      <path d="M82 185h868v21H82z" fill="#A52279" />
+      <path d="M82 206h868v5H82z" fill="#6C1A5E" opacity="0.7" />
+      <path d="M377 111v106m287-106v106" stroke="#777B7D" strokeWidth="3" />
+
+      {windows.map((x, i) => (
+        <g key={`window-${i}`}>
+          <rect x={x} y="125" width="42" height="38" rx="5" fill="#62686B" stroke="#73777A" strokeWidth="2" />
+          <rect x={x + 4} y="129" width="34" height="30" rx="3" fill={`url(#${id}-glass)`} stroke="#383E42" strokeWidth="1.5" />
+          <path d={`M${x + 21} 130v28`} stroke="#747B7E" strokeWidth="1.5" />
+        </g>
+      ))}
+      {doors.map((x, i) => (
+        <g key={`door-${i}`}>
+          <rect x={x - 5} y="119" width="53" height="88" fill="#39A9D3" />
+          <rect x={x} y="126" width="43" height="78" fill="#5C6063" stroke="#292D30" strokeWidth="2" />
+          <rect x={x + 5} y="132" width="13" height="29" fill="#B9E7F3" stroke="#353A3D" strokeWidth="1.5" />
+          <rect x={x + 25} y="132" width="13" height="29" fill="#B9E7F3" stroke="#353A3D" strokeWidth="1.5" />
+          <path d={`M${x + 21} 126v78M${x - 5} 168h53`} stroke="#34393C" strokeWidth="2" />
+          <path d={`M${x - 7} 204h57`} stroke="#AEB2B0" strokeWidth="3" />
+        </g>
+      ))}
+      {[350, 644].map((x) => <text key={`cr-${x}`} x={x} y="202" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="23" fontWeight="700" fill="#FFFFFF">CR</text>)}
+      <rect x="79" y="216" width="874" height="8" fill="#45484A" />
+
+      {/* Coach underframes and wheels. */}
+      {[118, 180, 318, 394, 456, 594, 684, 746, 884, 946].map((x, i) => (
+        <g key={`wheel-${i}`}>
+          <rect x={x - 15} y="217" width="31" height="9" rx="3" fill="#393C3D" />
+          <circle cx={x} cy="230" r="8" fill="#35383A" stroke="#1F2325" strokeWidth="2" />
+        </g>
+      ))}
+      <rect x="72" y="238" width="888" height="4" fill="#343738" />
+      <path d="M72 238h888" stroke="#909493" strokeWidth="1" />
     </svg>
   );
 }
@@ -89,7 +96,7 @@ export default function PlatformScene() {
 
       <motion.div
         data-testid="train-arrival"
-        initial={reduce ? { opacity: 0 } : { x: "108%" }}
+        initial={reduce ? { opacity: 0 } : { x: "-108%" }}
         animate={reduce ? { opacity: 1 } : { x: 0 }}
         onAnimationComplete={() => setTrainArrived(true)}
         transition={{ duration: 1.7, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
