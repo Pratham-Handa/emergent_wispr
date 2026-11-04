@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { motion, AnimatePresence, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { toast } from "sonner";
 import { useLang } from "./LanguageContext";
 
@@ -65,7 +64,6 @@ export function TrainSVG({ id = "train" }) {
 export default function PlatformScene() {
   const { t } = useLang();
   const reduce = useReducedMotion();
-  const [aunty, setAunty] = useState(false);
   const [trainArrived, setTrainArrived] = useState(false);
   const { scrollY } = useScroll();
   const ySky = useTransform(scrollY, [0, 600], [0, 70]);
@@ -116,42 +114,15 @@ export default function PlatformScene() {
           <span className="font-display text-sm font-semibold tracking-[0.25em] text-[#1A1A1A]/45">
             {t.hero.platform} · प्लेटफ़ॉर्म 1
           </span>
-          <span className="hidden text-xs italic text-[#1A1A1A]/40 md:block">{t.eggs.auntyHint}</span>
 
           <div className="absolute -top-36 left-[12%] md:-top-40 md:left-[22%]">
-            <AnimatePresence>
-              {aunty && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 8 }}
-                  className="absolute bottom-full left-1/2 mb-3 hidden w-64 -translate-x-1/2 rounded-lg border-2 border-[#1A1A1A] bg-[#FDFBF7] p-3 shadow-[6px_6px_0_rgba(26,26,26,0.2)] md:block"
-                  data-testid="aunty-speech-bubble"
-                >
-                  <p className="text-sm leading-snug text-[#1A1A1A]">“{t.eggs.auntyLabel}”</p>
-                  <span className="mt-2 block text-[10px] uppercase tracking-widest text-[#1A1A1A]/50">Aunty · Platform 1</span>
-                  <span className="absolute -bottom-2 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-b-2 border-r-2 border-[#1A1A1A] bg-[#FDFBF7]" />
-                </motion.div>
-              )}
-            </AnimatePresence>
-            <button
-              data-testid="easter-egg-aunty"
-              onClick={() => {
-                if (window.matchMedia("(max-width: 767px)").matches) {
-                  toast.message(t.eggs.auntyLabel);
-                  return;
-                }
-                setAunty((v) => !v);
-              }}
-              aria-label="An aunty waiting on the platform — tap to read her question"
-              className="block transition-transform duration-200 hover:-translate-y-1"
-            >
+            <div data-testid="platform-aunty" aria-hidden="true" className="block">
               <img
                 src="/figures/aunty.png"
-                alt="An aunty with her jute bag and umbrella, waiting for the train"
-                className="h-36 w-auto object-contain drop-shadow-[0_5px_5px_rgba(38,34,28,0.22)] md:h-40"
+                alt=""
+                className="h-36 w-auto select-none object-contain drop-shadow-[0_5px_5px_rgba(38,34,28,0.22)] md:h-40"
               />
-            </button>
+            </div>
           </div>
 
           <button
